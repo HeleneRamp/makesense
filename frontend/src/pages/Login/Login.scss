@@ -51,7 +51,7 @@
 .login__form {
   animation: FormAnimation 2s linear forwards;
   width: 14rem;
-  margin-top: 1rem;
+  padding-top: 4rem;
 }
 .login__logo {
   animation: LogoAnimation 1.5s linear forwards;
@@ -59,10 +59,13 @@
   scale: 4;
   position: absolute;
 }
-
+.captcha__field--section {
+  width: 2rem;
+}
 .login__button {
   @include buttons;
   margin-inline: 20%;
+  margin-top: 1rem;
 }
 
 .login__input {

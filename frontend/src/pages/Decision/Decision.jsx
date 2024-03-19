@@ -37,18 +37,16 @@ function Decision() {
             <strong>Date d'ouverture:</strong> {decision.french_date} <br />
             <strong>Date de clôture:</strong> {decision.decision_delay}
           </h2>
-          {user[0].user_id === decision.user_id ? (
+          {user[0].user_id === decision.user_id && (
             <Link to="/decision/update" className="decision__edit">
               Editer la décision
             </Link>
-          ) : (
-            ""
           )}
         </section>
         <ProgressBar status={decision.status} />
       </header>
       <section className="decision__page--body">
-        <section className={`left__section ${writeComment ? "hidden" : null}`}>
+        <section className={`left__section ${writeComment && "hidden"}`}>
           <DescriptionBox
             title={decision.decision_title}
             status={decision.status}
@@ -66,9 +64,7 @@ function Decision() {
             paragraphRisks={decision.paragraph_risks}
           />
         </section>
-        <section
-          className={`right__section ${!writeComment ? "hidden" : null}`}
-        >
+        <section className={`right__section ${!writeComment && "hidden"}`}>
           <CommentSection
             comment={comment}
             setComment={setComment}

@@ -1,10 +1,12 @@
 import { useContext, useRef, useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
 import { AuthContext } from "../../contexts/authContext";
 
 function Login() {
   // Ref for mail and password
+  const captchaRef = useRef(null);
   const emailRef = useRef();
   const passwordRef = useRef();
   const [loginError, setLoginError] = useState();
@@ -14,31 +16,36 @@ function Login() {
   // Navigation hook
   const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/login`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
-          }),
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // captchaRef.current.reset();
+    const captchaValue = captchaRef.current.getValue();
+    if (!captchaValue) {
+      alert("Please verify the reCAPTCHA!");
+    } else {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/login`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: emailRef.current.value,
+              password: passwordRef.current.value,
+            }),
+          }
+        );
+        if (response.status === 200) {
+          const user = await response.json();
+          setUser(user);
+          navigate("/homepage/decisions/all");
+        } else {
+          setLoginError("⛔ Erreur dans votre mail ou mot de passe. ⛔");
+          console.info(response);
         }
-      );
-      if (response.status === 200) {
-        const user = await response.json();
-        setUser(user);
-        navigate("/homepage/decisions/all");
-      } else {
-        setLoginError("⛔ Erreur dans votre mail ou mot de passe. ⛔");
-        console.info(response);
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
     }
   };
 
@@ -68,6 +75,13 @@ function Login() {
             ref={passwordRef}
           />
         </label>
+        <ReCAPTCHA
+          sitekey={import.meta.env.VITE_REACT_APP_SITE_KEY}
+          ref={captchaRef}
+          size="normal"
+          data-action="LOGIN"
+          className="g-recaptcha"
+        />
         <button className="login__button" type="submit">
           Se Connecter
         </button>

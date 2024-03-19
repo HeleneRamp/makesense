@@ -19,6 +19,7 @@
   @include scroll;
   height: 72vh;
   width: 48.5vw;
+
   overflow-x: hidden;
 }
 .descriptionBox__header {
@@ -88,7 +89,6 @@
 }
 .collapsed {
   display: none;
-  background-color: $secondary-background;
 }
 .disabled {
   display: none;
