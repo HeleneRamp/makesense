@@ -12,6 +12,7 @@ $primary-light: rgba(209, 226, 230);
 $primary-medium: rgba(25, 108, 132);
 $primary-dark: rgb(12, 57, 68);
 //GREEN
+$secondary-pale: rgb(205, 223, 215);
 $secondary-light: rgba(188, 219, 205);
 $secondary-medium: rgb(112, 175, 144);
 $secondary-dark: #24673a;
@@ -127,6 +128,26 @@ $input-login_bg: rgba(209, 226, 230);
     background-color: currentColor;
     border-radius: 20px;
     border: 3px solid rgb($primary-medium, 0.5);
+  }
+}
+
+@mixin scrollDecision {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: currentColor rgb($secondary-medium, 0.5);
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgb($secondary-medium, 0.5);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: currentColor;
+    border-radius: 20px;
+    border: 3px solid rgb($secondary-medium, 0.5);
   }
 }
 

@@ -79,9 +79,11 @@ function CreateDecision() {
         <CreateDecisionFormImpacted
           setCreateDecisionFormImpacted={setCreateDecisionFormImpacted}
         />
-        <button type="submit" className="createDecisionForm__button">
-          Publier
-        </button>
+        <div className="button__section">
+          <button type="submit" className="createDecisionForm__button">
+            Publier
+          </button>
+        </div>
       </aside>
     </form>
   );

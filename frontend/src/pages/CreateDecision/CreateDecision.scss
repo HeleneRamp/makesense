@@ -8,7 +8,19 @@
   height: 85vh;
   margin-top: 9vh;
 }
-
+.button__section {
+  display: flex;
+  justify-content: flex-end;
+}
+.createDecisionForm__button {
+  width: 9rem;
+  margin-top: 1rem;
+  &:hover {
+    background-color: $background;
+    border: 2px solid $primary-medium;
+    color: $primary-medium;
+  }
+}
 @media (max-width: 700px) {
   .createDecision__main {
     display: flex;

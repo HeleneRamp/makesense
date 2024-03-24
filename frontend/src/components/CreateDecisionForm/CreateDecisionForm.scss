@@ -1,22 +1,17 @@
 @import "../../variables";
 
+.createDecisionForm__input:first-child {
+  width: 98.6%;
+}
 .createDecisionForm__content {
   @include box;
   margin-block-start: 2%;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
+  padding: 1%;
   background-color: $background;
   & * {
     background-color: $background;
   }
 }
-
-.createDecisionForm__content--choiceBoxes {
-  height: 30vh;
-  justify-content: space-between;
-}
-
 .createDecisionForm__titles {
   text-align: center;
   padding-block: 1%;
@@ -25,6 +20,11 @@
 .createDecisionForm__list {
   @include scroll;
   height: 100%;
+  padding-block: 0.5rem;
+  height: 14rem;
+  border: 4px solid $background;
+  background-color: $background;
+  border-radius: 15px 0px 0px 0px;
 }
 
 .createDecisionForm__chosen {
@@ -32,6 +32,7 @@
   align-items: center;
   font-weight: 700;
   margin-block: 1%;
+  margin-inline: 1%;
   border-radius: 20px;
   background-color: $secondary-background;
   padding: 1%;
@@ -68,7 +69,8 @@
   align-items: center;
   justify-content: space-between;
   background-color: $background;
-  margin: 0 -2% -2% -2%;
+  border-radius: 0px 0px 15px 0px;
+  padding: 0.2rem;
   & input {
     all: unset;
     background-color: $background;
@@ -78,28 +80,65 @@
   & button {
     @include buttons;
     padding: 2%;
-    margin: 3px;
+    margin: 0.2rem;
   }
 }
 
-.createDecisionForm__content--decision {
+.createDecision__scroll--section {
   @include scroll;
-  padding: 1%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  height: 80.5vh;
+}
+.createDecisionForm__content--decision {
   height: 85vh;
   width: 40vw;
-  & textarea {
+  & .createDecisionForm__react-quill {
     background-color: $secondary-background;
     border-radius: 5px;
+    padding: 0.5rem;
     min-height: 200px;
-    overflow-y: auto;
+    margin-right: 1rem;
+    overflow-y: scroll;
     resize: none;
     scrollbar-width: thin;
     scrollbar-color: currentColor rgb($primary-medium, 0.5);
-
+    font-size: 1rem;
+    @include scroll;
     &::-webkit-scrollbar {
       width: 12px;
     }
+    & p,
+    strong,
+    em,
+    u,
+    ol,
+    li,
+    ul,
+    h1,
+    h2,
+    h3,
+    .ql-container,
+    .ql-blank,
+    .ql-editor {
+      border: none !important;
 
+      background-color: $secondary-background;
+      font-size: 1rem;
+    }
+    & u {
+      text-decoration: underline;
+    }
+    & .ql-toolbar {
+      border: 2px solid $secondary-background !important;
+      border-radius: 5px 0px 0px 0px;
+      background-color: $background;
+    }
+    & .ql-container {
+      max-height: 2rem;
+    }
     &::-webkit-scrollbar-track {
       background: rgb($primary-medium, 0.5);
     }
@@ -110,13 +149,11 @@
       border: 3px solid rgb($primary-medium, 0.5);
     }
   }
-  & textarea:focus,
-  input:focus {
-    outline: none !important;
-    border-color: $primary-medium;
-    box-shadow: 0 0 5px $primary-medium;
+  & input {
+    border: 2px solid $secondary-background;
   }
   & label {
+    padding-top: 1rem;
     font-weight: bold;
     font-size: larger;
     margin-block: 0.8%;
@@ -126,21 +163,21 @@
         font-size: 20px;
         background-color: $secondary-background;
         border-radius: 5px;
+        padding: 0.2rem;
       }
     }
   }
 }
-
 .createDecisionForm__status select {
   background-color: $secondary-background;
   border-radius: 5px;
+  padding: 0.2rem;
   & option {
+    border: none;
     background-color: $secondary-background;
-    border-radius: 5px;
   }
 }
 
-.createDecisionForm__label input,
 .createDecisionForm__status select {
   margin-inline-start: 1vw;
 }

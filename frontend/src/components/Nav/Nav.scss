@@ -12,7 +12,7 @@
   background-color: $background;
   font-weight: bold;
   top: 0%;
-  height: 9vh;
+  height: 10vh;
   & * {
     background-color: $background;
   }
@@ -38,7 +38,7 @@
 }
 
 .nav__logo {
-  width: 15%;
+  width: 20%;
   &--img {
     width: 100%;
   }
@@ -85,21 +85,21 @@
     }
   }
   .nav__avatar--img {
-    width: 55px;
-    height: 55px;
+    width: 4.5rem;
+    height: 4.5rem;
     margin-inline-start: 8px;
   }
   .nav__avatar--edit {
     width: 20px;
     height: 20px;
-    top: 5.5vh;
-    right: 2.3vw;
+    top: 3rem;
+    right: 0.8rem;
   }
   .nav__nav {
     padding-inline: 2vw;
   }
   .nav__logo {
-    width: 100px;
+    width: 40%;
   }
   .nav__avatar--input {
     height: 30px;

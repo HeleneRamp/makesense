@@ -60,7 +60,7 @@ function CreateDecisionFormExperts({ setCreateDecisionFormExperts }) {
   return (
     <article className="createDecisionForm__experts">
       <h2 className="createDecisionForm__titles">Expert·e·s</h2>
-      <span className="createDecisionForm__content createDecisionForm__content--choiceBoxes">
+      <span>
         <ul className="createDecisionForm__list">
           {filteredUsers.map((user) => (
             <li key={user.user_id} className="createDecisionForm__chosen">
@@ -97,7 +97,6 @@ function CreateDecisionFormExperts({ setCreateDecisionFormExperts }) {
           <datalist id="usersList">
             {users.map((user) => (
               <option
-                className="createDecisionForm__search--options"
                 key={user.user_id}
                 aria-label="Noms"
                 value={`${user.firstname} ${user.lastname} (${user.email})`}

@@ -63,7 +63,7 @@ function CreateDecisionFormImpacted({ setCreateDecisionFormImpacted }) {
   return (
     <article className="createDecisionForm__impacted">
       <h2 className="createDecisionForm__titles">Impacté·e·s</h2>
-      <span className="createDecisionForm__content createDecisionForm__content--choiceBoxes">
+      <span>
         <ul className="createDecisionForm__list">
           {filteredUsers.map((user) => (
             <li key={user.user_id} className="createDecisionForm__chosen">
@@ -91,7 +91,7 @@ function CreateDecisionFormImpacted({ setCreateDecisionFormImpacted }) {
           <input
             className="createDecisionForm__input"
             type="text"
-            placeholder="Rechercher expert·e·s"
+            placeholder="Rechercher impacté·e·s"
             value={searchUser}
             onChange={handleInputChange}
             list="users-list"

@@ -6,6 +6,7 @@
   background-color: transparent;
 }
 .progress__bar {
+  padding-top: 2rem;
   font-size: clamp(0.75rem, 1.25vw, 1rem);
   font-weight: bold;
   display: flex;
@@ -15,6 +16,7 @@
 }
 .progress__bar::before {
   content: "";
+  margin-top: 1.7rem;
   background-color: $primary-pale;
   top: 24%;
   transform: translateY(-50%);
@@ -53,7 +55,7 @@
   justify-content: center;
   font-weight: bold;
   max-width: 5vw;
-  height: 7vh;
+  // height: 7vh;
 }
 .name__hidden {
   display: none;
@@ -62,12 +64,9 @@
 @media screen and (max-width: 700px) {
   .progress__bar {
     width: 100%;
-    padding-top: 2vh;
+    // padding-top: 2vh;
   }
   .progressBar__status {
     height: 5vh;
-  }
-  .progress__bar::before {
-    top: 38%;
   }
 }
